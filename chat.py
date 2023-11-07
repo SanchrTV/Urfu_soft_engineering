@@ -1,4 +1,5 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer
+from textblob import TextBlob
 
 # import nltk
 
@@ -12,11 +13,22 @@ tokenizer = AutoTokenizer.from_pretrained("Salesforce/codegen-350M-mono")
 tokenizer.padding_side = 'left'  # Set padding_side after initializing the tokenizer
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
 
+def correct_text(input_text):
+    text_blob = TextBlob(input_text)
+    corrected_text = text_blob.correct()
+    return str(corrected_text)
 
 # Function for chatbot with text pre-check
 def chatbot_response(input_text):
+    #Сorrecting the text before processing
+    corrected_input_text = correct_text(input_text)
+
+    #Check if the text has been changed
+    if corrected_input_text != input_text:
+        print("Исправленный текст:", corrected_input_text)
+
     # Encoding the input text and adding special tokens
-    input_ids = tokenizer.encode(input_text + tokenizer.eos_token + "", return_tensors='pt')
+    input_ids = tokenizer.encode(corrected_input_text + tokenizer.eos_token + "", return_tensors='pt')
 
     # Generating model response
     chat_history_ids = model.generate(input_ids, max_length=1000, pad_token_id=tokenizer.eos_token_id)
