@@ -1,3 +1,5 @@
 from transformers import pipeline
-model = pipeline(model="seara/rubert-tiny2-ru-go-emotions")
-model("Мне нравится машинное обуччение")
+
+model = pipeline("sentiment-analysis",
+                 "blanchefort/rubert-base-cased-sentiment")
+print(model("Мне нравится машинное обучение"))
