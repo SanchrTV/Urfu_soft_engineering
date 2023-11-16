@@ -25,7 +25,7 @@
 pip install transformers textblob streamlit
 
 ## Запуск
-streamlit run /Users/dmitryloschinin/Desktop/Urfu_soft_engineering/app.py --server.port 8502
+streamlit run app.py --server.port 8502
 
 ## Использование
 Для использования чат-бота запустите скрипт. После инициализации чат-бот предложит ввести текст. Он исправит ваш ввод, если это необходимо, и затем предоставит ответ. Чтобы выйти из чата, введите 'exit'.
