@@ -22,7 +22,7 @@
 
 ## Установка
 Установите необходимые библиотеки с помощью `pip`:
-pip install transformers textblob streamlit
+pip install -r requirements.txt
 
 ## Запуск
 streamlit run app.py --server.port 8502
