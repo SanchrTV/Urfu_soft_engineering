@@ -33,7 +33,7 @@ if st.button("Send"):
     response = chatbot_response(user_input)
 
     # Update conversation history
-    st.session_state.conversation_history += f"You: {user_input}<br>Chat-bot: {response}<hr>"
+    st.session_state.conversation_history += f"<span style='color:gray;'>You:</span> <br> {user_input}<br><br><span style='color:gray;'>Chat-bot:</span> <br>{response}<hr>"
 
     # Display conversation history using st.markdown with HTML formatting
     st.markdown("#### Conversation History:", unsafe_allow_html=True)
