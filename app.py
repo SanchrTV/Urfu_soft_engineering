@@ -35,7 +35,18 @@ def chatbot_response(input_text):
 
 # Streamlit interface
 st.title("Chatbot with Text Correction")
+
+# Initialize conversation history
+if "conversation_history" not in st.session_state:
+    st.session_state.conversation_history = ""
+
 user_input = st.text_input("You: ", key="input_text")
 if st.button("Send"):
     response = chatbot_response(user_input)
-    st.text_area("Chat-bot:", value=response, height=100, key="response")
+
+    # Update conversation history
+    st.session_state.conversation_history += f"You: {user_input}<br>Chat-bot: {response}<hr>"
+
+    # Display conversation history using st.markdown with HTML formatting
+    st.markdown("#### Conversation History:", unsafe_allow_html=True)
+    st.markdown(st.session_state.conversation_history, unsafe_allow_html=True)
