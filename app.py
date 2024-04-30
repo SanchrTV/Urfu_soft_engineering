@@ -13,6 +13,15 @@ def correct_text(input_text):
     return str(corrected_text)
 
 def chatbot_response(input_text):
+"""
+A function for generating a chatbot response to an input text.
+
+Args:
+input_text (str): The input text to generate the response based on.
+
+Returns:
+str: The generated chatbot response.
+"""
     corrected_input_text = correct_text(input_text)
     if corrected_input_text != input_text:
         st.write("Corrected text:", corrected_input_text)
