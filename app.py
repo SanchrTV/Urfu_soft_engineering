@@ -8,20 +8,29 @@ tokenizer.padding_side = 'left'
 model = AutoModelForCausalLM.from_pretrained("microsoft/DialoGPT-medium")
 
 def correct_text(input_text):
+    """
+    Function for correcting input text using the TextBlob library.
+
+    Args:
+    input_text (str): Input text to be corrected.
+
+    Returns:
+    str: Corrected text.
+    """
     text_blob = TextBlob(input_text)
     corrected_text = text_blob.correct()
     return str(corrected_text)
 
 def chatbot_response(input_text):
-"""
-A function for generating a chatbot response to an input text.
+    """
+    A function for generating a chatbot response to an input text.
 
-Args:
-input_text (str): The input text to generate the response based on.
+    Args:
+    input_text (str): The input text to generate the response based on.
 
-Returns:
-str: The generated chatbot response.
-"""
+    Returns:
+    str: The generated chatbot response.
+    """
     corrected_input_text = correct_text(input_text)
     if corrected_input_text != input_text:
         st.write("Corrected text:", corrected_input_text)
