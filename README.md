@@ -39,3 +39,7 @@ chatbot_response(input_text: str) -> str
 
 ## Выход
 Чтобы выйти из процесса Streamlit, который запущен в командной строке (терминале), вы обычно можете использовать сочетание клавиш Ctrl + C. Это стандартный способ прерывания выполнения большинства процессов в терминале.
+
+## Repository
+1 semester https://github.com/loschinin/Urfu_soft_engineering
+2 semester https://github.com/loschinin/Urfu_soft_engineering_2 (Created by Loschinin)
