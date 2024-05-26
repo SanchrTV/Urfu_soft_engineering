@@ -4,3 +4,6 @@ textblob
 pytest
 fastapi~=0.104.1
 flake8
+torch
+torchvision
+torchaudio
